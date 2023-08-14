@@ -1,0 +1,4 @@
+Heartbeat
+| where TimeGenerated > ago(7d)
+| extend Computer = toupper(extract(@'([^.]+), 1, Computer))
+| summarize by Computer
